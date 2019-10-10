@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:UtilityManagerXamarin.ViewModels"
+             x:Class="UtilityManagerXamarin.Views.CreateAccountPage">
+
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatible with Xamarin Live Player -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="Tr">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+
+
+
+    <ScrollView Grid.Row="1">
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <StackLayout Orientation="Horizontal">
+                <Entry Text="{Binding FirstName}" Placeholder="First Name"></Entry>
+                <Entry Text="{Binding LastName}" Placeholder="Last Name"></Entry>
+            </StackLayout>
+
+            <Entry Text="{Binding Email}" Placeholder="Email" ></Entry>
+            <Entry Text="{Binding Phone}" Placeholder="Phone" Keyboard="Numeric" ></Entry>
+            <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"></Entry>
+            <Entry Text="{Binding Password}" Placeholder="Confirm Password" IsPassword="True"></Entry>
+            <Entry Text="{Binding Residence}" Placeholder="Residence" ></Entry>
+            <Entry Text="{Binding IdCardNumber}" Placeholder="ID Card Number" ></Entry>
+            <Picker x:Name="pickers"
+                     Title="Sex"
+                SelectedItem="{Binding Sex}">
+                <Picker.Items>
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                </Picker.Items>
+            </Picker>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Save Password"></Label>
+            </StackLayout>
+            <Label Text="{Binding Message}"/>
+            <Button Margin="0,5,0,0" Text="Register"
+                    Command="{Binding RegisterCommand}" 
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+
+            
+
+            <Button Margin="0,10,0,0" FontSize="Default" Text="Login"
+                        BackgroundColor="Transparent"
+                        TextColor="LightGray" x:Name="LoginButton" Clicked="LoginButton_Clicked" />
+        </StackLayout>
+
+
+    </ScrollView>
+</ContentPage>

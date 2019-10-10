@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:UtilityManagerXamarin.ViewModels"
+             x:Class="UtilityManagerXamarin.Views.HomePage">
+
+    <ContentPage.BindingContext>
+        <vm:HomePageViewModel />
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatible with Xamarin Live Player -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="Tr">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        
+
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="UMLOGO.png" VerticalOptions="Center" HeightRequest="150" WidthRequest="200" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <Entry Text="{Binding Username}" Placeholder="Username" Keyboard="Email" />
+                <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True" />
+                <Button Margin="0,10,0,0" Text="Login"
+                        Command="{Binding LoginCommand}"
+                        BackgroundColor="#CA5100"
+                        TextColor="White" />
+
+                <Label FontSize="13" Margin="0,15,0,0" HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text=" " />
+                                <Span Text="Don't have an account ?" ForegroundColor="{StaticResource LightTextColor}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Button Margin="0,10,0,0" FontSize="Default" Text="Register"
+                        BackgroundColor="{StaticResource LightTextColor}"
+                        TextColor="White" x:Name="RegisterButton" Clicked="RegisterButton_Clicked" />
+            </StackLayout>
+            
+            
+        </ScrollView>
+    </Grid>
+
+    <!--<ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>-->
+</ContentPage>

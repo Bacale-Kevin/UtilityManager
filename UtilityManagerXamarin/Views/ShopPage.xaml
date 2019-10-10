@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:sys="clr-namespace:System;assembly=mscorlib"
+            xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+            xmlns:vm="clr-namespace:UtilityManagerXamarin.ViewModels"
+            x:Class="UtilityManagerXamarin.Views.ShopPage">
+
+
+    <ContentPage Title="Maps">
+
+        <maps:Map x:Name="locationMap"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  MapType="Hybrid"
+                  IsShowingUser="True"/>
+    </ContentPage>
+
+
+
+
+
+
+    <ContentPage Title="Create Shop">
+        <ContentPage.BindingContext>
+            <vm:ShopViewModel />
+        </ContentPage.BindingContext>
+
+
+
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <!--Page Level Resources: Compatible with Xamarin Live Player -->
+                <Color x:Key="Primary">#2196F3</Color>
+                <Color x:Key="Accent">#96d1ff</Color>
+                <Color x:Key="LightTextColor">#999999</Color>
+                <Color x:Key="Tr">#999999</Color>
+            </ResourceDictionary>
+        </ContentPage.Resources>
+
+
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Spacing="17" Padding="13">
+                    <StackLayout Orientation="Vertical">
+                        
+                        <Label Text="Enterprise" TextColor="DodgerBlue" FontSize="Small" />
+                        <Picker x:Name="SelectStructure"
+                     Title="Select the enterprise to whom the shop belongs to" 
+                    ItemsSource="{Binding Structures2}" 
+                                SelectedIndexChanged="SelectStructure_SelectedIndexChanged">
+                            
+                        </Picker>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="Quarter" TextColor="DodgerBlue" FontSize="Small" />
+                        <Picker 
+                     Title="Choose your quarter"
+                            x:Name="SelectQuarter"
+                     ItemsSource="{Binding Quarters}"
+                            SelectedIndexChanged="SelectQuarter_SelectedIndexChanged">
+                            
+                        </Picker>
+                    </StackLayout>
+                    
+                    <Label Text="Name" TextColor="DodgerBlue" FontSize="Small" />
+                    <Entry Text="{Binding Name}" x:Name="Name" Placeholder="Name of Shop" />
+                    <StackLayout>
+                        <Label Text="Date" TextColor="DodgerBlue" FontSize="Small" />
+                        <DatePicker x:Name="Date" BindingContext="{Binding ShopCreatedDate}" Date="{x:Static sys:DateTime.Today}" Format="d MMM yyyy" MinimumDate="{x:Static sys:DateTime.Today}" />
+                    </StackLayout>
+
+                    <Button Margin="0,5,0,0" Text="Save"
+                            x:Name="CreateShopButton"
+                            Clicked="CreateShopButton_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+
+
+
+                </StackLayout>
+
+
+            </ScrollView>
+        </Grid>
+    </ContentPage>
+
+
+
+    <ContentPage Title="View Shops" >
+
+        <ListView x:Name="ItemsListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"  Detail="{Binding ShopCreationDate}" DetailColor="Gray" TextColor="DodgerBlue">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Update" Clicked="UpdateItem_Clicked" CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Delete" Clicked="DeleteItem_Clicked" IsDestructive="True" CommandParameter="{Binding .}"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<ListView x:Name="ItemsListView"
+                ItemsSource="{Binding Shops}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Name}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+    </ContentPage>
+
+</TabbedPage>

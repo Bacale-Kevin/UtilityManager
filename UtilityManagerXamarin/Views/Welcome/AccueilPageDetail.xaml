@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UtilityManagerXamarin.Views.Welcome.AccueilPageDetail"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="add.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatible with Xamarin Live Player -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="Tr">#999999</Color>
+            <Color x:Key="CustomYellow">#F5F521</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ScrollView>
+        <StackLayout BackgroundColor="White">
+            <StackLayout Padding="20,20,20,20">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="Start" >
+                        <Image Aspect="AspectFit" Source="pin.png" WidthRequest="100" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="HomeButton"
+                            Tapped="HomeButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <FlexLayout >
+                            <Label  Text="Create an Enterprise" TextColor="#CA5100" />
+                        </FlexLayout>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="End" >
+                        <Image Aspect="AspectFit" Source="shop.png" WidthRequest="100" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="SalesButton"
+                            Tapped="SalesButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout >
+                            <Label  Text="Create an Shop " TextColor="#CA5100" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="Start" >
+                        <Image Aspect="AspectFit" Source="warehouse.png" WidthRequest="100" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="StoreButton"
+                            Tapped="StoreButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout >
+                            <Label  Text="Create an Orgainisation " TextColor="#CA5100" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="End" >
+                        <Image Aspect="AspectFit" Source="location.png" WidthRequest="100" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="EmployeeButton"
+                            Tapped="EmployeeButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout >
+                            <Label  Text="Create an Orgainisation " TextColor="#CA5100" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="Start" >
+                        <Image Aspect="AspectFit" Source="placeholder1.png" WidthRequest="100" HeightRequest="100" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="StockButton"
+                            Tapped="StockButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout >
+                            <Label  Text="Create an Orgainisation " TextColor="#CA5100" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="End" >
+                        <Image Source="money.png" WidthRequest="100" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="OrganisationButton"
+                            Tapped="OrganisationButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout >
+                            <Label  Text="Create an Orgainisation " TextColor="#CA5100" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="Start" >
+                        <Image Aspect="AspectFit" Source="settings.png" WidthRequest="100" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="SettingButton"
+                            Tapped="SettingButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout>
+                            <Label  Text="Create an Orgainisation " TextColor="#CA5100" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="End" >
+                        <Image Aspect="AspectFit"  Source="businessman.png" WidthRequest="100" HeightRequest="100">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                            x:Name="AboutButton"
+                            Tapped="AboutButton_Tapped"
+                            NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <StackLayout>
+                            <Label  Text="Create an Orgainisation " TextColor="#CA5100" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+            <!--<ListView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Text}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding Description}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UtilityManagerXamarin.Views.MenuPage"
+             Title="Menu">
+    <StackLayout VerticalOptions="FillAndExpand">
+        <ListView x:Name="ListViewMenu"
+                    HasUnevenRows="True">
+
+
+            <ListView.Header>
+
+                <StackLayout HeightRequest="120" BackgroundColor="#CA5100">
+                    <Image Source="placeholder1.png" Aspect="AspectFill" HeightRequest="120" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+
+            </ListView.Header>
+
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid  Padding="10">
+                            <FlexLayout VerticalOptions="Center" Direction="Row">
+                                <Image Source="{Binding Icon}" WidthRequest="30" HeightRequest="30"/>
+                                <Label  Text="  " />
+                                <Label  Text="{Binding Title}" FontSize="Small" FontAttributes="Bold"/>
+                            </FlexLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

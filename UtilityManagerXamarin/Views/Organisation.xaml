@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:OrganisationViewPage"
+             xmlns:vm="clr-namespace:UtilityManagerXamarin.ViewModels"
+              xmlns:local1="clr-namespace:UtilityManagerXamarin.Views"
+              x:Class="UtilityManagerXamarin.Views.Organisation"
+            Title="Enterprise"
+             >
+
+
+    
+
+
+
+    <ContentPage Title="Create">
+        <ContentPage.BindingContext>
+         <vm:OrganisationViewModel />
+        </ContentPage.BindingContext>
+
+        
+
+        <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatible with Xamarin Live Player -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="Tr">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Spacing="17" Padding="13">
+                
+                <!--Countries-->
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Country" TextColor="DodgerBlue" FontSize="Small" />
+                        <Picker x:Name="SelectCountry"
+
+                         Title="Select Your Country"
+                                ItemsSource="{Binding Items}">
+                            <!--SelectedIndexChanged="SelectCountry_SelectedIndexChanged"-->
+                            
+
+                        </Picker>
+                </StackLayout>
+                
+                
+                <!--Town-->
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Town" TextColor="DodgerBlue" FontSize="Small" />
+                        <Picker x:Name="SelectTown"
+                         Title="Select Your Town"
+                                ItemsSource="{Binding Towns}"
+                                SelectedIndexChanged="SelectTown_SelectedIndexChanged">
+
+
+                        </Picker>
+                    </StackLayout>
+                
+                
+                <!--Quarters-->
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Quarter" TextColor="DodgerBlue" FontSize="Small" />
+                        <Picker x:Name="SelectQuarter" SelectedIndexChanged="SelectQuarter_SelectedIndexChanged" 
+                         Title="Select Your Quarter"
+                                ItemsSource="{Binding Quarters}"
+                                SelectedItem="{Binding QuarterId}">
+
+
+                        </Picker>
+                    </StackLayout>
+
+                
+                <!--ActivityDomain-->
+                    <StackLayout>
+                        <Label x:Name="xlabel" Text="Domain" TextColor="DodgerBlue" FontSize="Small" />
+                        <Picker 
+                     Title="Select Your Domain of Activity"
+                        ItemsSource="{Binding ActivityDomains}"
+                            SelectedIndexChanged="SelectActivityDomain_SelectedIndexChanged"
+                        x:Name="SelectActivityDomain">
+                            
+                        </Picker>
+                </StackLayout>
+                
+                    <Label Text="Name" TextColor="DodgerBlue" FontSize="Small" />
+                <Entry Text="{Binding Name}" x:Name="Organisatione" Placeholder="Name of Organisation" />
+                
+                    <Label Text="Phone" TextColor="DodgerBlue" FontSize="Small" />
+                <Entry Text="{Binding Phone}" x:Name="Phone" Placeholder="Phone Number" Keyboard="Numeric" />
+                
+                    <Label Text="Postal Code" TextColor="DodgerBlue" FontSize="Small" />
+                <Entry Text="{Binding POBOX}" x:Name="POBOX" Placeholder="P.O BOX" />
+
+                <Button Margin="0,5,0,0" Text="Save"
+                       
+                        x:Name="CreateStructureButton"
+                        Clicked="CreateStructureButton_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+
+
+
+            </StackLayout>
+
+
+        </ScrollView>
+    </Grid>
+   </ContentPage>
+
+    <ContentPage Title="View">
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <!--Page Level Resources: Compatible with Xamarin Live Player -->
+                <Color x:Key="Primary">#2196F3</Color>
+                <Color x:Key="Accent">#96d1ff</Color>
+                <Color x:Key="LightTextColor">#999999</Color>
+                <Color x:Key="Tr">#999999</Color>
+            </ResourceDictionary>
+        </ContentPage.Resources>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+
+
+
+                </StackLayout>
+
+
+            </ScrollView>
+        </Grid>
+    </ContentPage>
+</TabbedPage>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UtilityManagerXamarin.Views.StockPage">
+
+
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatible with Xamarin Live Player -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="Tr">#999999</Color>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+
+
+    <ContentPage Title="Create Item">
+        <ScrollView>
+        <StackLayout BackgroundColor="Transparent" Spacing="20" Padding="30" VerticalOptions="Center" Margin="20">
+                <Button BackgroundColor="#CA5100" Text="Create A Category" TextColor="White" VerticalOptions="Center" x:Name="CreateCategorieButton" Clicked="CreateCategorieButton_Clicked" />
+
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10" BackgroundColor="White">
+
+                <Picker x:Name="CategoryPicker"
+                        ItemsSource="{Binding Categories}"
+                        SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"
+                     Title="Category" />
+                <StackLayout Orientation="Vertical" Spacing="20" Padding="20" VerticalOptions="Center">
+                    
+                    <Entry x:Name="Name"  Placeholder="Name"></Entry>
+                        <Entry x:Name="Model"  Placeholder="Model"></Entry>
+
+
+                        <Button BackgroundColor="DeepPink" Text="Create A Category" TextColor="White" VerticalOptions="Center" x:Name="SaveItemButton" Clicked="SaveItemButton_Clicked" />
+                    
+
+
+
+                </StackLayout>
+
+            </StackLayout>
+            
+
+        </StackLayout>
+            
+
+        </ScrollView>
+
+    </ContentPage>
+    
+    
+    <!--Create Stock Page-->
+    <ContentPage Title="Create A Stock">
+
+        <ScrollView>
+            <StackLayout BackgroundColor="White" Spacing="20" Margin="20" Padding="20" VerticalOptions="Center">
+
+                <Picker x:Name="ItemPicker"
+                        Title="Select Item"
+                        SelectedIndexChanged="ItemPicker_SelectedIndexChanged"
+                    />
+
+                <Picker x:Name="ShopPicker"
+                        Title="Select Shop"
+                        SelectedIndexChanged="ShopPicker_SelectedIndexChanged"
+                    />
+                
+                
+
+                <Entry x:Name="NameStock" Placeholder="Name" ></Entry>
+                <Entry x:Name="Quantity"   Placeholder="Quantity" Keyboard="Numeric" ></Entry>
+                <Entry x:Name="Price"  Placeholder="Price" Keyboard="Numeric"></Entry>
+                <DatePicker x:Name="DateStock" BindingContext="{Binding ShopCreatedDate}" Date="{x:Static sys:DateTime.Today}" Format="d MMM yyyy" MinimumDate="{x:Static sys:DateTime.Today}" />
+                <Button BackgroundColor="DeepPink"  Text="Save" x:Name="SaveStocButton" Clicked="SaveStocButton_Clicked" TextColor="White" Margin="0, 20, 0, 0"/>
+            </StackLayout>
+        </ScrollView>
+    
+
+
+      
+    </ContentPage>
+    
+</TabbedPage>
